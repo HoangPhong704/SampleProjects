@@ -1,0 +1,6 @@
+﻿Device XMC1402-0128
+SelectInterface SWD
+speed 4000
+r
+loadfile D:\Linux_Share\build\dmx3.hex
+Exit

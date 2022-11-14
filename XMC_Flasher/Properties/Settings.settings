@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="XMC_Flasher.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FirmwarePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\XMC_Firmware</Value>
+    </Setting>
+    <Setting Name="COMPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM4</Value>
+    </Setting>
+    <Setting Name="Printer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Panduit TDP43ME (Copy 1)</Value>
+    </Setting>
+    <Setting Name="DB_Connection" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
