@@ -12,7 +12,7 @@
       <Value Profile="(Default)">Panduit TDP43ME (Copy 1)</Value>
     </Setting>
     <Setting Name="DB_Connection" Type="System.String" Scope="User">
-      <Value Profile="(Default)">.\</Value>
+      <Value Profile="(Default)">Server=.\; Trusted_Connection=True; Database=RDM;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

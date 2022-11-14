@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="XMC_Flasher.Views.TestFirmwareUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:XMC_Flasher.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="340" d:DesignWidth="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="Test" FontWeight="SemiBold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Firmware Version" Margin="2" FontWeight="SemiBold"/>
+            <TextBox Grid.Row="1" Text="{Binding FirmwareVersion, UpdateSourceTrigger=PropertyChanged}" Margin="2" Width="150" HorizontalAlignment="Left"
+                                         IsEnabled="False" Background="LightGray"/>
+            <TextBlock Grid.Row="2" Text="RDM Address" Margin="2" FontWeight="SemiBold"/>
+            <TextBox Grid.Row="3" Text="{Binding RDMAddress, UpdateSourceTrigger=PropertyChanged}" Margin="2" Width="150" HorizontalAlignment="Left"
+                                         IsEnabled="False" Background="LightGray"/>
+            <TextBlock Grid.Row="4" Text="Wattage" Margin="2" FontWeight="SemiBold"/>
+            <TextBox Grid.Row="5" Text="{Binding Wattage, UpdateSourceTrigger=PropertyChanged}" Margin="2" Width="150" HorizontalAlignment="Left"
+                                         IsEnabled="False" Background="LightGray"/>
+
+            <TextBlock Margin="2" Grid.Row="6" Text="{Binding Message, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" TextWrapping="Wrap">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding HasError, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="Foreground" Value="Firebrick"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding HasError, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                <Setter Property="Foreground" Value="DarkGreen"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+
+        <Button Grid.Row="3" Content="Validate" Command="{Binding CommandTestFirmware, UpdateSourceTrigger=PropertyChanged}" IsDefault="True" FontWeight="SemiBold" 
+                                ToolTip="Flash selected firmware to board">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</UserControl>

@@ -23,6 +23,9 @@ namespace XMC_Flasher.Managers
             PrinterName = printerName;
             LabelItem = labelItem;
         }
+        /// <summary>
+        /// Print lable for device
+        /// </summary>
         public void Print()
         {
             

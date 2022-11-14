@@ -51,7 +51,13 @@ namespace XMC_Flasher.Managers
                 TemplateFileName = "dmx4_template.hex";
             }
         }
- 
+         /// <summary>
+         /// Upload firmware file to xmc using J-Link command line
+         /// </summary>
+         /// <param name="firmware"></param>
+         /// <param name="setBMI"></param>
+         /// <param name="silenceUI"></param>
+         /// <returns></returns>
         public Task<(bool IsSuccessful, string Message)> FlashAsync(string firmware, bool setBMI = false, bool silenceUI = false)
         {
             if (!File.Exists(JLinkFileName)) return Task.FromResult((false, "JLink program is not installed on this computer.  Please install it and try again."));
@@ -85,7 +91,10 @@ namespace XMC_Flasher.Managers
             });
         }
         //L:\Software\LEDFirmware\RDMTemplates
-
+        /// <summary>
+        /// Determine if existing device already have valid device ID
+        /// </summary>
+        /// <returns></returns>
         public bool HasValidRDMAddress()
         {
             var p = JLinkFileName.StartNewProcess();
@@ -109,7 +118,11 @@ namespace XMC_Flasher.Managers
             return rdmAddress != DEFAULT_RDM_ID;
         }
 
-
+        /// <summary>
+        /// Set device ID to memory address so firmware to write to EEPROM
+        /// </summary>
+        /// <param name="rdmAddress"></param>
+        /// <exception cref="Exception"></exception>
         public void SetRDMAddress(string rdmAddress)
         {
             var p = JLinkFileName.StartNewProcess();

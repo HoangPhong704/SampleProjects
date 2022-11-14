@@ -12,7 +12,13 @@ namespace XMC_Flasher.Managers
         {
 
         }
-
+        /// <summary>
+        /// Generate barcode image from parameters
+        /// </summary>
+        /// <param name="firmwareVersion"></param>
+        /// <param name="rdmAddress"></param>
+        /// <param name="wattage"></param>
+        /// <returns></returns>
         public LabelItemModel GenerateBarCode(string firmwareVersion, string rdmAddress, string wattage)
         { 
 

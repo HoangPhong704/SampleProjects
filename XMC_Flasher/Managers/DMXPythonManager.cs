@@ -16,7 +16,11 @@ namespace XMC_Flasher.Managers
         {
             _comPort = comPort;
         }
-
+        /// <summary>
+        /// Communicates to firmware using RDM protocol with python code
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public (string Address, string FirmwareVersion, string Wattage) GetFirmwareData()
         { 
             var directory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "", SUBFOLDER);

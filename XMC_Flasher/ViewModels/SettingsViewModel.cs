@@ -56,9 +56,13 @@ namespace XMC_Flasher.ViewModels
             }
             AvailablePrinters = printers;
         }
+        /// <summary>
+        /// All settings must have values to save changes
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         private bool CanExecuteSave(object? obj)
-        {
-            //return !string.IsNullOrWhiteSpace(PrinterName) && !string.IsNullOrWhiteSpace(COMPort) && DataChanged;
+        { 
             return !string.IsNullOrWhiteSpace(FirmwarePath) && !string.IsNullOrWhiteSpace(DB_Connection) && !string.IsNullOrWhiteSpace(PrinterName) && !string.IsNullOrWhiteSpace(COMPort) && DataChanged;
         }
 
@@ -71,7 +75,7 @@ namespace XMC_Flasher.ViewModels
                 if (string.IsNullOrWhiteSpace(COMPort)) throw new Exception("A valid COM port must be selected!");
                 if (string.IsNullOrWhiteSpace(DB_Connection)) throw new Exception("A valid database connection is required!");
                 SettingsManager.Instance.Set(FirmwarePath, COMPort ?? "", PrinterName ?? "", DB_Connection ?? "");
-                new MX2SContext().Validate();
+                new DataContext().Validate();
                 SettingsManager.Instance.Save();
                 OnSettingsSaved?.Invoke(this, null);
             }

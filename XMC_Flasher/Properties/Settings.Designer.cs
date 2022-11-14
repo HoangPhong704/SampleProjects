@@ -61,7 +61,7 @@ namespace XMC_Flasher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(".\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=.\\; Trusted_Connection=True; Database=RDM;")]
         public string DB_Connection {
             get {
                 return ((string)(this["DB_Connection"]));

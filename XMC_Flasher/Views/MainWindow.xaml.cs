@@ -1,21 +1,8 @@
-﻿using XMC_Flasher.FrameWorks;
-using XMC_Flasher.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace XMC_Flasher
+namespace XMC_Flasher.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -32,7 +19,7 @@ namespace XMC_Flasher
             if (ViewModelMain.IsInitialized) return;
             ViewModelMain.OnEditSettingsRequested += ViewModelMain_OnEditSettingsRequested;
             ViewModelMain.OnCloseApplicationRequested += ViewModelMain_OnCloseApplicationRequested;
-            ViewModelMain.GetBoardFamilies();
+            ViewModelMain.ViewModelFlash.GetBoardFamilies();
             ViewModelMain.IsInitialized = true; 
         }
 
@@ -51,7 +38,7 @@ namespace XMC_Flasher
 
         private void ViewModelSettings_OnSettingsSaved(object? sender, EventArgs e)
         { 
-            ViewModelMain.GetBoardFamilies(); 
+            ViewModelMain.ViewModelFlash.GetBoardFamilies(); 
         }
 
         private void OnWindowDragged(object sender, MouseButtonEventArgs e)
@@ -69,7 +56,7 @@ namespace XMC_Flasher
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ViewModelMain.ValidateBoardFirmware();
+            ViewModelMain.ViewModelTest.ValidateBoardFirmware();
         }
     }
 }

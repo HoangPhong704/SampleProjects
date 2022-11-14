@@ -3,13 +3,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace XMC_Flasher.FrameWorks
 {
-    internal class MX2SContext : DbContext
+    internal class DataContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {  
             optionsBuilder.UseSqlServer(
                 SettingsManager.Instance.DB_Connection ?? ".\\");             
         }
+        /// <summary>
+        /// Reserve device ID to keep device unique and track when device was activated
+        /// </summary>
+        /// <returns></returns>
         public string ReserveRDMAddress()
         {
             var rdmAddress = new SqlParameter

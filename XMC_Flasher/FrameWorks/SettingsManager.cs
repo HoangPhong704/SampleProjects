@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace XMC_Flasher.FrameWorks
+﻿namespace XMC_Flasher.FrameWorks
 {
     public class SettingsManager
     {
